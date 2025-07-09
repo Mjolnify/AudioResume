@@ -48,7 +48,7 @@
         }
         
         .logo {
-            font-size: 2rem;
+            font-size: 1.33rem;
             font-weight: 300;
             color: white;
             text-decoration: none;
@@ -170,10 +170,6 @@
         }
         
         /* Demo sections */
-        .main-demos {
-            margin-bottom: 1.1rem;
-        }
-        
         .demo-category {
             margin-bottom: 0.9rem;
         }
@@ -208,7 +204,6 @@
         }
         
         .demo-content {
-            height: 0;
             overflow: hidden;
             transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -309,6 +304,14 @@
             font-size: 0.95rem;
         }
         
+        .construction-message {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            font-style: italic;
+            color: #4ecdc4;
+        }
+        
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .header {
@@ -375,7 +378,7 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <a href="#home" class="logo">AUDIO PRODUCER</a>
+            <a href="#home" class="logo">MJOLNIFY</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#demos">Demos</a></li>
@@ -409,93 +412,13 @@
             <div class="section-content">
                 <h2 class="section-title">Demos</h2>
                 
-                <!-- Main Featured Demos -->
-                <div class="main-demos">
-                    <div class="demo-grid">
-                        <div class="demo-item">
-                            <h4>Featured Track #1</h4>
-                            <p>Track 1</p>
-                            <div class="audio-player">
-                                <audio controls>
-                                    <source src="demos/90S.mp3" type="audio/mpeg">
-                                    Your browser does not support the audio element.
-                                </audio>
-                            </div>
-                        </div>
-                        <div class="demo-item">
-                            <h4>Featured Track #2</h4>
-                            <p>Track 2</p>
-                            <div class="audio-player">
-                                <audio controls>
-                                    <source src="demos/C13.mp3" type="audio/mpeg">
-                                    Your browser does not support the audio element.
-                                </audio>
-                            </div>
-                        </div>
-                        <div class="demo-item">
-                            <h4>Featured Track #3</h4>
-                            <p>Track 3</p>
-                            <div class="audio-player">
-                                <audio controls>
-                                    <source src="demos/N6.mp3" type="audio/mpeg">
-                                    Your browser does not support the audio element.
-                                </audio>
-                            </div>
-                        </div>
-                        <div class="demo-item">
-                            <h4>Featured Track #4</h4>
-                            <p>Track 4</p>
-                            <div class="audio-player">
-                                <audio controls>
-                                    <source src="demos/S1.mp3" type="audio/mpeg">
-                                    Your browser does not support the audio element.
-                                </audio>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Piano Category -->
-                <div class="demo-category">
-                    <div class="demo-header" onclick="toggleDemo('piano')">
-                        <h3 class="demo-title">Piano</h3>
-                        <span class="expand-icon" id="piano-icon">+</span>
-                    </div>
-                    <div class="demo-content" id="piano-content">
-                        <div class="demo-content-inner">
-                            <div class="demo-grid">
-                                <div class="demo-item">
-                                    <h4>Ethereal Ballad</h4>
-                                    <p>A gentle, flowing piano piece with ambient textures.</p>
-                                    <div class="audio-player">
-                                        <audio controls>
-                                            <source src="demos/piano/ethereal-ballad.mp3" type="audio/mpeg">
-                                            Your browser does not support the audio element.
-                                        </audio>
-                                    </div>
-                                </div>
-                                <div class="demo-item">
-                                    <h4>Cinematic Drama</h4>
-                                    <p>Dramatic piano composition for film scoring.</p>
-                                    <div class="audio-player">
-                                        <audio controls>
-                                            <source src="demos/piano/cinematic-drama.mp3" type="audio/mpeg">
-                                            Your browser does not support the audio element.
-                                        </audio>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
                 <!-- Effects & Transitions Category -->
                 <div class="demo-category">
                     <div class="demo-header" onclick="toggleDemo('effects')">
                         <h3 class="demo-title">Effects & Transitions</h3>
-                        <span class="expand-icon" id="effects-icon">+</span>
+                        <span class="expand-icon" id="effects-icon">−</span>
                     </div>
-                    <div class="demo-content" id="effects-content">
+                    <div class="demo-content expanded" id="effects-content">
                         <div class="demo-content-inner">
                             <div class="demo-grid">
                                 <div class="demo-item">
@@ -538,6 +461,93 @@
                                         </audio>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tracks Category -->
+                <div class="demo-category">
+                    <div class="demo-header" onclick="toggleDemo('tracks')">
+                        <h3 class="demo-title">Tracks</h3>
+                        <span class="expand-icon" id="tracks-icon">−</span>
+                    </div>
+                    <div class="demo-content expanded" id="tracks-content">
+                        <div class="demo-content-inner">
+                            <div class="demo-grid">
+                                <div class="demo-item">
+                                    <h4>Featured Track #1</h4>
+                                    <p>Track 1</p>
+                                    <div class="audio-player">
+                                        <audio controls>
+                                            <source src="demos/90S.mp3" type="audio/mpeg">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </div>
+                                </div>
+                                <div class="demo-item">
+                                    <h4>Featured Track #2</h4>
+                                    <p>Track 2</p>
+                                    <div class="audio-player">
+                                        <audio controls>
+                                            <source src="demos/C13.mp3" type="audio/mpeg">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </div>
+                                </div>
+                                <div class="demo-item">
+                                    <h4>Featured Track #3</h4>
+                                    <p>Track 3</p>
+                                    <div class="audio-player">
+                                        <audio controls>
+                                            <source src="demos/N6.mp3" type="audio/mpeg">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </div>
+                                </div>
+                                <div class="demo-item">
+                                    <h4>Featured Track #4</h4>
+                                    <p>Track 4</p>
+                                    <div class="audio-player">
+                                        <audio controls>
+                                            <source src="demos/S1.mp3" type="audio/mpeg">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Piano Category -->
+                <div class="demo-category">
+                    <div class="demo-header" onclick="toggleDemo('piano')">
+                        <h3 class="demo-title">Piano</h3>
+                        <span class="expand-icon" id="piano-icon">−</span>
+                    </div>
+                    <div class="demo-content expanded" id="piano-content">
+                        <div class="demo-content-inner">
+                            <div class="demo-grid">
+                                <div class="demo-item">
+                                    <h4>Ethereal Ballad</h4>
+                                    <p>A gentle, flowing piano piece with ambient textures.</p>
+                                    <div class="audio-player">
+                                        <audio controls>
+                                            <source src="demos/piano/ethereal-ballad.mp3" type="audio/mpeg">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </div>
+                                </div>
+                                <div class="demo-item">
+                                    <h4>Cinematic Drama</h4>
+                                    <p>Dramatic piano composition for film scoring.</p>
+                                    <div class="audio-player">
+                                        <audio controls>
+                                            <source src="demos/piano/cinematic-drama.mp3" type="audio/mpeg">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -550,65 +560,8 @@
         <section id="faq" class="section">
             <div class="section-content">
                 <h2 class="section-title">FAQ</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ('faq1')">
-                        <span>How long have you been working with audio/music?</span>
-                        <span class="expand-icon" id="faq1-icon">+</span>
-                    </div>
-                    <div class="faq-answer" id="faq1-answer">
-                        <div class="faq-answer-content">
-                            7 years as an obsession - I've been deeply passionate about audio production and have dedicated countless hours to perfecting my craft.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ('faq2')">
-                        <span>What's your going rate?</span>
-                        <span class="expand-icon" id="faq2-icon">+</span>
-                    </div>
-                    <div class="faq-answer" id="faq2-answer">
-                        <div class="faq-answer-content">
-                            $50 an hour for hourly work. The structure of payment is very flexible, and can be by job, project, or however fits your needs.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ('faq3')">
-                        <span>What if I don't like what you do/make?</span>
-                        <span class="expand-icon" id="faq3-icon">+</span>
-                    </div>
-                    <div class="faq-answer" id="faq3-answer">
-                        <div class="faq-answer-content">
-                            I will revise it until you're satisfied, or for smaller projects, 100% refund. Your satisfaction is my priority.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ('faq4')">
-                        <span>[Question placeholder - replace with your question]</span>
-                        <span class="expand-icon" id="faq4-icon">+</span>
-                    </div>
-                    <div class="faq-answer" id="faq4-answer">
-                        <div class="faq-answer-content">
-                            [Answer placeholder - replace with your answer]
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ('faq5')">
-                        <span>[Question placeholder - replace with your question]</span>
-                        <span class="expand-icon" id="faq5-icon">+</span>
-                    </div>
-                    <div class="faq-answer" id="faq5-answer">
-                        <div class="faq-answer-content">
-                            [Answer placeholder - replace with your answer]
-                        </div>
-                    </div>
+                <div class="construction-message">
+                    [under construction]
                 </div>
             </div>
         </section>
@@ -640,6 +593,18 @@
             quantity: 3.00,
             wingSpan: 60.00,
             backgroundAlpha: 0.8
+        });
+        
+        // Initialize demo sections to be expanded on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const demoCategories = ['effects', 'tracks', 'piano'];
+            
+            demoCategories.forEach(category => {
+                const content = document.getElementById(category + '-content');
+                if (content) {
+                    content.style.height = content.scrollHeight + 'px';
+                }
+            });
         });
         
         // Toggle demo sections
