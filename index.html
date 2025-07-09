@@ -595,17 +595,59 @@
             backgroundAlpha: 0.8
         });
         
-        // Initialize demo sections to be expanded on page load
+        // Handle hash navigation for demo categories
+        function handleHashNavigation() {
+            const hash = window.location.hash.substring(1); // Remove the # symbol
+            const demoCategories = ['effects', 'tracks', 'piano'];
+            
+            if (demoCategories.includes(hash)) {
+                // Navigate to demos section
+                document.getElementById('demos').scrollIntoView({ behavior: 'smooth' });
+                
+                // Collapse all sections first
+                demoCategories.forEach(category => {
+                    const content = document.getElementById(category + '-content');
+                    const icon = document.getElementById(category + '-icon');
+                    if (content && icon) {
+                        content.style.height = '0px';
+                        content.classList.remove('expanded');
+                        icon.textContent = '+';
+                    }
+                });
+                
+                // Expand only the target section
+                setTimeout(() => {
+                    const targetContent = document.getElementById(hash + '-content');
+                    const targetIcon = document.getElementById(hash + '-icon');
+                    if (targetContent && targetIcon) {
+                        targetContent.classList.add('expanded');
+                        targetContent.style.height = targetContent.scrollHeight + 'px';
+                        targetIcon.textContent = '−';
+                    }
+                }, 100); // Small delay to ensure smooth transition
+            }
+        }
+        
+        // Initialize demo sections to be expanded on page load (if no hash)
         document.addEventListener('DOMContentLoaded', function() {
             const demoCategories = ['effects', 'tracks', 'piano'];
             
-            demoCategories.forEach(category => {
-                const content = document.getElementById(category + '-content');
-                if (content) {
-                    content.style.height = content.scrollHeight + 'px';
-                }
-            });
+            // Check if there's a hash in the URL
+            if (window.location.hash) {
+                handleHashNavigation();
+            } else {
+                // Default behavior - expand all sections
+                demoCategories.forEach(category => {
+                    const content = document.getElementById(category + '-content');
+                    if (content) {
+                        content.style.height = content.scrollHeight + 'px';
+                    }
+                });
+            }
         });
+        
+        // Listen for hash changes
+        window.addEventListener('hashchange', handleHashNavigation);
         
         // Toggle demo sections
         function toggleDemo(category) {
@@ -644,6 +686,7 @@
                 icon.textContent = '−';
             }
         }
+        
         // Pause other audio players when one starts playing
         const audioPlayers = document.querySelectorAll('audio');
         
