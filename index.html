@@ -619,7 +619,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.birds.min.js"></script>
     
     <script>
-        // Initialize Vanta Birds Effect
+        // Initialize the birds
         VANTA.BIRDS({
             el: "#vanta-bg",
             mouseControls: true,
@@ -679,6 +679,18 @@
                 icon.textContent = '−';
             }
         }
+        // Pause other audio players when one starts playing
+        const audioPlayers = document.querySelectorAll('audio');
+        
+        audioPlayers.forEach(player => {
+            player.addEventListener('play', () => {
+                audioPlayers.forEach(otherPlayer => {
+                    if (otherPlayer !== player) {
+                        otherPlayer.pause();
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
