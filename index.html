@@ -320,6 +320,37 @@
             color: #4ecdc4;
         }
         
+        /* Video section */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            background: #000;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .video-fallback {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .video-fallback a {
+            color: #4ecdc4;
+        }
+        
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .header {
@@ -391,6 +422,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#demos">Demos</a></li>
                 <li><a href="#faq">FAQ</a></li>
+                <li><a href="#video">Video</a></li>
             </ul>
             <a href="mailto:thor.p.steffes@gmail.com" class="contact-email">thor.p.steffes@gmail.com</a>
         </nav>
@@ -588,6 +620,27 @@
                 <div class="construction-message">
                     [under construction]
                 </div>
+            </div>
+        </section>
+        
+        <!-- Video Section -->
+        <section id="video" class="section">
+            <div class="section-content">
+                <h2 class="section-title">Watch</h2>
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/tWSYLuC4yKo?rel=0&playsinline=1"
+                        title="Mjolnify — featured video"
+                        loading="lazy"
+                        frameborder="0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="video-fallback">
+                    Playback not working?
+                    <a href="https://www.youtube.com/watch?v=tWSYLuC4yKo" target="_blank" rel="noopener noreferrer">Watch it on YouTube</a>.
+                </p>
             </div>
         </section>
     </div>
